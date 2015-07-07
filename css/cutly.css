@@ -1,0 +1,184 @@
+body {
+    background-color: #196a00;
+}
+
+h1 {
+    color: orange;
+    text-align: center;
+    font-family: "Lithos Pro Bold";
+    font-size: 25px;
+}
+
+h2 {
+    color: orange;
+    text-align: center;
+    font-family: "Lithos Pro";
+    font-size: 17px;
+    line-height: 10px;
+}
+
+p {
+    font-family: "Lithos Pro";
+    font-size: 14px;
+    text-align: center;
+    color: orange;
+}
+
+.url_large{
+    font-family: "Lithos Pro";
+    font-size: 20px;
+    text-align: center;
+    color: orange;
+}
+
+.url_short{
+    font-family: "Lithos Pro";
+    font-size: 32px;
+    text-align: center;
+    color: orange;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    line-height: 20px;
+}
+a{
+    text-decoration:none;
+    font-family: "Berlin Sans FB";
+}
+
+a:link{
+    color: #00ff00;
+}
+a:visited{
+    color: #00cc00;
+}
+a:hover{
+    color: #ecc300;
+}
+
+table, td {
+    border: none;
+    margin-left: auto; 
+    margin-right: auto;
+    text-align: center;
+    max-width: 100%;
+}
+
+form {
+    max-width: 100%;
+}
+
+img {
+    max-width: 100%;
+    margin-left: auto; 
+    margin-right: auto;
+    display:block;
+    margin-bottom:2%;
+    text-align:center;
+}
+
+input[type="text"]{
+    height: 60px;
+    font-size: 24px;
+    font-family: "Berlin Sans FB";
+    color: orange;
+    border: solid;
+    border-width: 2px;
+    border-radius: 7px;
+    border-color: #ecc300;
+    max-width: 100%;
+    padding-left: 10px;
+}
+
+input[type="text"].large_url{
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+input[type="text"].alias{
+    width: 100%;
+    margin-left: 5%;
+}
+
+input[type="submit"]{
+    height: 65px;
+    width: 100%;
+    font-size: 25px;
+    font-family: "Lithos Pro";
+    color: white;
+    background-color: #ecc300;
+    cursor: pointer;
+    border: none;
+    border-radius: 7px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: 8%;
+    margin-right: 4%;
+}
+
+input[type="submit"]:hover{
+    background-color: orange;
+}
+
+button{
+    height: 40px;
+    font-size: 25px;
+    font-family: "Lithos Pro";
+    color: white;
+    background-color: #196a00;
+    cursor: pointer;
+    border: solid;
+    border-radius: 7px;
+    margin-left: 10%;
+    margin-bottom: 10px;
+}
+
+button:hover, .zeroclipboard-is-hover{
+    background-color: #00cc00;
+}
+
+/* webkit, opera, IE9 */
+::selection {
+     background: orange; 
+     color: white; 
+ }
+/* mozilla firefox, google chrome */
+::-moz-selection { 
+    background: orange; 
+    color: white; 
+}
+
+@media screen and (max-width: 720px){
+    button {
+        display: none;
+    }
+}
+
+@font-face{
+    font-family: "Lithos Pro";
+    src: url(/font/Lithos-Pro.ttf);
+}
+
+@font-face{
+    font-family: "Lithos Pro Black";
+    src: url(/font/Lithos-Pro-Black.ttf);
+}
+@font-face{
+    font-family: "Lithos Pro Bold";
+    src: url(/font/Lithos-Pro-Bold.ttf);
+}
+
+@font-face{
+    font-family: "Lithos Pro Extra Light";
+    src: url(/font/Lithos-Pro-Extra-Light.ttf);
+}
+
+@font-face{
+    font-family: "Lithos Pro Light";
+    src: url(/font/Lithos-Pro-Light.ttf);
+}
+
+@font-face{
+    font-family: "Berlin Sans FB";
+    src: url(/font/Berlin-Sans-FB.ttf);
+}
