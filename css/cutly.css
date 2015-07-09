@@ -100,6 +100,10 @@ input[type="text"].alias{
     margin-left: 5%;
 }
 
+.ident{
+    display: none;
+}
+
 input[type="submit"]{
     height: 65px;
     width: 100%;

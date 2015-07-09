@@ -52,8 +52,9 @@ print
                         ),
                     ),
                 ),
+                $q->textfield(-name=>'identity', -class=>'ident'), #Campo no visible para evitar bots 
     $q->end_form;
-    if($large_url = $q->param('large_URL')){ #Comprobamos que el texto no está vacío
+    if($large_url = $q->param('large_URL') and !$q->param('identity')){ #Comprobamos que el texto no está vacío y no se ha rellenado el campo oculto(bots)
         $shorten = shorten_url($q->param('alias')); #Subrutina que crea la URL corta
         print $q->hr,
         $q->td($q->h2('Your new short URL:')),
