@@ -99,8 +99,7 @@ sub shorten_url{
     chmod 0755, $new_file;
     print $new qq|#!/usr/bin/perl
 use CGI;
-my \$q=new CGI;
-print \$q->redirect("|.$large_url.qq|");|;   #Redirección 301
+print CGI->redirect("|.$large_url.qq|");|;   #Redirección 301
                 
     # print $new '<html>        #Redirección convencional con posibilidad de Google Analytics
                     # <head>
