@@ -1,5 +1,5 @@
 body {
-    background-color: #196a00;
+    background-color: #0B3B0B;
 }
 
 h1 {
@@ -7,6 +7,7 @@ h1 {
     text-align: center;
     font-family: "Lithos Pro Bold";
     font-size: 25px;
+    margin-bottom: initial;
 }
 
 h2 {
@@ -129,7 +130,7 @@ button{
     font-size: 25px;
     font-family: "Lithos Pro";
     color: white;
-    background-color: #196a00;
+    background-color: #0B3B0B;
     cursor: pointer;
     border: solid;
     border-radius: 7px;
@@ -152,8 +153,36 @@ button:hover, .zeroclipboard-is-hover{
     color: white; 
 }
 
-@media screen and (max-width: 720px){
-    button {
+@media screen and (max-width: 1280px){
+    body{
+        background-color: #424242;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    p{
+        margin-left: -12px;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
+    input[type="submit"]{
+        font-size: 23px;
+        padding-left: 2px;
+        padding-right: 2px;
+        margin-left: 3px;
+        margin-top: 5px;
+    }
+    input[type="text"].large_url{
+        margin-left: -5px;
+        margin-top: 5px;
+    }
+    input[type="text"].alias{
+        height: 50px;
+        font-size: 20px;
+        margin-right: 25px;
+        margin-left: -5px;
+    }
+    button{
         display: none;
     }
 }
