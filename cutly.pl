@@ -55,23 +55,27 @@ print
                 $q->textfield(-name=>'identity', -class=>'ident'), #Campo no visible para evitar bots 
     $q->end_form;
     if($large_url = $q->param('large_URL') and !$q->param('identity')){ #Comprobamos que el texto no está vacío y no se ha rellenado el campo oculto(bots)
-        $shorten = shorten_url($q->param('alias')); #Subrutina que crea la URL corta
-        print $q->hr,
-        $q->td($q->h2('Your new short URL:')),
-        $q->table(
-            $q->Tr(
-                $q->td($q->p({-class=>'url_short'}, $q->a( {-target=>'_blank', -href => $shorten }, $shorten ))), 
-                # $q->td($q->button({
-                        # -id      => 'text-to-copy',
-                        # -data-clipboard-text  => $shorten,
-                        # -value  => 'COPY'}
-                    # )
-                # ),
-                $q->td('<button id="text-to-copy" data-clipboard-text="'.$shorten.'">COPY</button>'), #Damos la opción de copiar la URL corta mediante un botón
+        if($large_url =~ /(https{0,1}:\/\/){0,1}\w+\.[a-zA-Z]+(\/.+){0,1}/i){    #Comprobamos que es una URL válida
+            $shorten = shorten_url($q->param('alias')); #Subrutina que crea la URL corta
+            print $q->hr,
+            $q->td($q->h2('Your new short URL:')),
+            $q->table(
+                $q->Tr(
+                    $q->td($q->p({-class=>'url_short'}, $q->a( {-target=>'_blank', -href => $shorten }, $shorten ))), 
+                    # $q->td($q->button({
+                            # -id      => 'text-to-copy',
+                            # -data-clipboard-text  => $shorten,
+                            # -value  => 'COPY'}
+                        # )
+                    # ),
+                    $q->td('<button id="text-to-copy" data-clipboard-text="'.$shorten.'">COPY</button>'), #Damos la opción de copiar la URL corta mediante un botón
+                ),
             ),
-        ),
-        $q->hr,
-        $q->p({-class=>'url_large'},$q->a( {-href => $large_url }, $large_url )); #Mostramos la URL original
+            $q->hr,
+            $q->p({-class=>'url_large'},$q->a( {-href => $large_url }, $large_url )); #Mostramos la URL original
+        }else{
+            print $q->p({-class=>'not_valid'},'Unable to shorten that link. It is not a valid url.');
+        }
     }
     print $q->end_html;
 

@@ -104,6 +104,10 @@ input[type="text"].alias{
 .ident{
     display: none;
 }
+.not_valid{
+    color: red;
+    font-size: 25px;
+}
 
 input[type="submit"]{
     height: 65px;
