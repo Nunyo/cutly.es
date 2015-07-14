@@ -8,7 +8,8 @@ use CGI qw ( -utf8 );
 use CGI::Carp qw(fatalsToBrowser);
 use strict;
 use warnings;
-use Random;
+use String::Random;
+use Data::Validate::URI qw(is_web_uri);
 
 my $q = new CGI;
 my $shorten;
@@ -55,7 +56,10 @@ print
                 $q->textfield(-name=>'identity', -class=>'ident'), #Campo no visible para evitar bots 
     $q->end_form;
     if($large_url = $q->param('large_URL') and !$q->param('identity')){ #Comprobamos que el texto no está vacío y no se ha rellenado el campo oculto(bots)
-        if($large_url =~ /(https{0,1}:\/\/){0,1}\w+\.[a-zA-Z]+(\/.+){0,1}/i){    #Comprobamos que es una URL válida
+		unless($large_url =~ /^(https?)|(s?ftp):\/\//i){  #Nos aseguramos de introducir la cabecera http
+			$large_url = 'http://'.$large_url;
+		}
+		if(is_web_uri($large_url) or $large_url =~ /^s?ftp:\/\/.+\../){    #Comprobamos que es una URL válida
             $shorten = shorten_url($q->param('alias')); #Subrutina que crea la URL corta
             print $q->hr,
             $q->td($q->h2('Your new short URL:')),
@@ -80,9 +84,6 @@ print
     print $q->end_html;
 
 sub shorten_url{
-    unless($large_url =~ /https{0,1}:\/\//i){  #Nos aseguramos de introducir la cabecera http
-        $large_url = 'http://'.$large_url;
-    }
     my $alias = shift;
     my $rand = new Random;
     my $pattern = 'x';
