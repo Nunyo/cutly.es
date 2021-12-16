@@ -1,4 +1,4 @@
-# cutli.es
+# cutly.es
 Cutly.es, URL Shortener
 
 Aplicación web que acorta URLs introducidas o pegadas en una barra de texto.
